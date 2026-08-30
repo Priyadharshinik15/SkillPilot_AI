@@ -1,0 +1,62 @@
+role,skill,required_level
+AI Engineer,Python,0.8
+AI Engineer,NumPy,0.6
+AI Engineer,Pandas,0.6
+AI Engineer,Statistics,0.7
+AI Engineer,Machine Learning,0.8
+AI Engineer,Feature Engineering,0.6
+AI Engineer,Deep Learning,0.7
+AI Engineer,PyTorch,0.6
+AI Engineer,NLP,0.6
+AI Engineer,LLM,0.6
+AI Engineer,RAG,0.5
+AI Engineer,Docker,0.5
+AI Engineer,MLOps,0.5
+Data Scientist,Python,0.7
+Data Scientist,NumPy,0.7
+Data Scientist,Pandas,0.8
+Data Scientist,Statistics,0.8
+Data Scientist,SQL,0.7
+Data Scientist,Data Visualization,0.7
+Data Scientist,Machine Learning,0.7
+Data Scientist,Feature Engineering,0.6
+Full Stack Developer,Python,0.4
+Full Stack Developer,HTML,0.8
+Full Stack Developer,CSS,0.8
+Full Stack Developer,JavaScript,0.8
+Full Stack Developer,React,0.7
+Full Stack Developer,Node.js,0.7
+Full Stack Developer,REST APIs,0.7
+Full Stack Developer,Databases,0.6
+Cybersecurity Specialist,Cryptography,0.6
+Cybersecurity Specialist,Network Security,0.8
+Cybersecurity Specialist,Application Security,0.7
+Cybersecurity Specialist,Cloud Security,0.7
+Cybersecurity Specialist,Ethical Hacking,0.8
+Cybersecurity Specialist,SOC,0.6
+Cybersecurity Specialist,Penetration Testing,0.8
+Cybersecurity Specialist,Security Engineering,0.7
+Cloud DevOps Engineer,Python,0.5
+Cloud DevOps Engineer,Docker,0.8
+Cloud DevOps Engineer,Kubernetes,0.8
+Cloud DevOps Engineer,AWS,0.8
+Cloud DevOps Engineer,CI/CD,0.8
+Cloud DevOps Engineer,Terraform,0.7
+Cloud DevOps Engineer,DevOps,0.8
+Cloud DevOps Engineer,Cloud Architecture,0.6
+UI/UX Designer,User Research,0.8
+UI/UX Designer,Wireframing,0.8
+UI/UX Designer,Figma,0.8
+UI/UX Designer,UI/UX Design,0.9
+UI/UX Designer,Product Design,0.7
+UI/UX Designer,Design Systems,0.7
+Product Manager,Product Management,0.9
+Product Manager,Project Management,0.7
+Product Manager,Business Strategy,0.8
+Product Manager,Agile/Scrum,0.8
+Product Manager,User Research,0.6
+Blockchain Engineer,Cryptography,0.7
+Blockchain Engineer,Blockchain,0.9
+Blockchain Engineer,Web3,0.8
+Blockchain Engineer,Solidity,0.8
+Blockchain Engineer,Smart Contracts,0.8

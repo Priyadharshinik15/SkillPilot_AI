@@ -1,0 +1,59 @@
+skill,category
+Python,Programming
+NumPy,Data Science
+Pandas,Data Science
+Statistics,Mathematics
+SQL,Data
+Data Visualization,Data
+Machine Learning,AI
+Feature Engineering,AI
+Deep Learning,AI
+PyTorch,AI
+NLP,AI
+LLM,Generative AI
+RAG,Generative AI
+Docker,DevOps
+MLOps,DevOps
+Cloud,Cloud
+HTML,Web
+CSS,Web
+JavaScript,Web
+React,Web
+Node.js,Web
+REST APIs,Web
+Databases,Web
+Network Security,Cybersecurity
+Application Security,Cybersecurity
+Cloud Security,Cybersecurity
+Ethical Hacking,Cybersecurity
+SOC,Cybersecurity
+Penetration Testing,Cybersecurity
+Security Engineering,Cybersecurity
+Cryptography,Cybersecurity
+AWS,Cloud & DevOps
+Kubernetes,Cloud & DevOps
+CI/CD,Cloud & DevOps
+Terraform,Cloud & DevOps
+DevOps,Cloud & DevOps
+Cloud Architecture,Cloud & DevOps
+UI/UX Design,Design
+Product Design,Design
+Design Systems,Design
+Figma,Design
+Wireframing,Design
+User Research,Design
+Product Management,Business & Management
+Project Management,Business & Management
+Business Strategy,Business & Management
+Agile/Scrum,Business & Management
+Blockchain,Emerging Tech
+Web3,Emerging Tech
+Solidity,Emerging Tech
+Smart Contracts,Emerging Tech
+Go,Programming
+Rust,Programming
+C++,Programming
+Java,Programming
+TypeScript,Web
+Next.js,Web
+FastAPI,Web

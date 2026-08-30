@@ -1,0 +1,37 @@
+{
+  "Python": [
+    {"q": "What does the 'len()' function return for a list?", "options": ["Its memory address", "The number of elements", "Its data type", "The last element"], "correct": 1},
+    {"q": "Which keyword defines a function in Python?", "options": ["func", "def", "function", "lambda"], "correct": 1},
+    {"q": "What is the output of 3 // 2 in Python?", "options": ["1.5", "1", "2", "Error"], "correct": 1},
+    {"q": "Which data structure is immutable in Python?", "options": ["list", "dict", "tuple", "set"], "correct": 2},
+    {"q": "What does 'self' refer to inside a class method?", "options": ["The class itself", "The current instance", "A global variable", "The parent class"], "correct": 1}
+  ],
+  "Statistics": [
+    {"q": "What does standard deviation measure?", "options": ["Central tendency", "Spread of data", "Correlation", "Sample size"], "correct": 1},
+    {"q": "A p-value below 0.05 typically suggests:", "options": ["No effect", "Statistically significant result", "Perfect correlation", "Data is normal"], "correct": 1},
+    {"q": "Which measure is most affected by outliers?", "options": ["Median", "Mode", "Mean", "IQR"], "correct": 2},
+    {"q": "What does correlation measure?", "options": ["Causation", "Linear relationship strength", "Variance", "Sample mean"], "correct": 1},
+    {"q": "In a normal distribution, what % falls within 1 standard deviation?", "options": ["50%", "68%", "95%", "99%"], "correct": 1}
+  ],
+  "Machine Learning": [
+    {"q": "What is overfitting?", "options": ["Model too simple", "Model memorizes training data, fails to generalize", "Model trains too fast", "Model has no parameters"], "correct": 1},
+    {"q": "What is the purpose of cross-validation?", "options": ["Speed up training", "Estimate generalization performance", "Reduce dataset size", "Increase overfitting"], "correct": 1},
+    {"q": "What does regularization do?", "options": ["Increases model complexity", "Penalizes large weights to reduce overfitting", "Speeds up inference", "Removes all features"], "correct": 1},
+    {"q": "Precision measures:", "options": ["True positives / all predicted positives", "True positives / all actual positives", "Correct predictions overall", "Model training time"], "correct": 0},
+    {"q": "What is feature engineering?", "options": ["Deleting all features", "Creating/transforming input variables to improve model performance", "Training a model", "Choosing a loss function"], "correct": 1}
+  ],
+  "Deep Learning": [
+    {"q": "What is an activation function used for?", "options": ["Loading data", "Introducing non-linearity into the network", "Storing weights", "Splitting datasets"], "correct": 1},
+    {"q": "What does backpropagation compute?", "options": ["Forward pass output", "Gradients of the loss w.r.t. weights", "Dataset size", "Learning rate"], "correct": 1},
+    {"q": "What is a common cause of vanishing gradients?", "options": ["Too few layers", "Saturating activation functions in deep networks", "Large batch size", "High learning rate only"], "correct": 1},
+    {"q": "What does a convolutional layer primarily do?", "options": ["Random shuffling", "Extract spatial features via filters", "Normalize labels", "Reduce dataset size"], "correct": 1},
+    {"q": "Dropout is used to:", "options": ["Speed up GPU training", "Prevent overfitting by randomly disabling neurons", "Increase model size", "Replace activation functions"], "correct": 1}
+  ],
+  "SQL": [
+    {"q": "Which clause filters rows before aggregation?", "options": ["HAVING", "WHERE", "GROUP BY", "ORDER BY"], "correct": 1},
+    {"q": "What does JOIN do?", "options": ["Deletes rows", "Combines rows from two or more tables", "Sorts a table", "Creates an index"], "correct": 1},
+    {"q": "Which keyword removes duplicate rows?", "options": ["UNIQUE", "DISTINCT", "FILTER", "GROUP"], "correct": 1},
+    {"q": "What does a PRIMARY KEY enforce?", "options": ["Sorting order", "Unique, non-null row identification", "Data type", "Foreign relationships only"], "correct": 1},
+    {"q": "HAVING is used to filter:", "options": ["Individual rows before grouping", "Groups after aggregation", "Column names", "Table names"], "correct": 1}
+  ]
+}

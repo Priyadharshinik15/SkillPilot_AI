@@ -1,0 +1,49 @@
+prerequisite,target
+Python,NumPy
+NumPy,Pandas
+Pandas,Statistics
+Statistics,Machine Learning
+Machine Learning,Feature Engineering
+Feature Engineering,Deep Learning
+Deep Learning,PyTorch
+PyTorch,NLP
+NLP,LLM
+LLM,RAG
+Python,Docker
+Docker,MLOps
+MLOps,Cloud
+Pandas,SQL
+SQL,Data Visualization
+Machine Learning,Data Visualization
+Python,HTML
+HTML,CSS
+CSS,JavaScript
+JavaScript,React
+JavaScript,Node.js
+Node.js,REST APIs
+REST APIs,Databases
+Cryptography,Network Security
+Network Security,Application Security
+Application Security,Cloud Security
+Network Security,SOC
+Application Security,Ethical Hacking
+Ethical Hacking,Penetration Testing
+Network Security,Security Engineering
+Docker,Kubernetes
+Kubernetes,AWS
+AWS,Terraform
+Terraform,DevOps
+DevOps,CI/CD
+AWS,Cloud Architecture
+User Research,Wireframing
+Wireframing,Figma
+Figma,UI/UX Design
+UI/UX Design,Product Design
+UI/UX Design,Design Systems
+User Research,Product Management
+Product Management,Agile/Scrum
+Agile/Scrum,Business Strategy
+Cryptography,Blockchain
+Blockchain,Web3
+Blockchain,Solidity
+Solidity,Smart Contracts

@@ -1,0 +1,26 @@
+course_id,title,skill,difficulty,resource_type,url
+c001,Python Basics,Python,easy,course,https://example.com/python-basics
+c002,NumPy for Data Science,NumPy,easy,course,https://example.com/numpy
+c003,Pandas Data Wrangling,Pandas,medium,course,https://example.com/pandas
+c004,Statistics for ML,Statistics,medium,course,https://example.com/stats-ml
+c005,SQL Fundamentals,SQL,easy,course,https://example.com/sql
+c006,Data Visualization with Python,Data Visualization,medium,course,https://example.com/dataviz
+c007,Machine Learning Fundamentals,Machine Learning,medium,course,https://example.com/ml-fundamentals
+c008,Feature Engineering Techniques,Feature Engineering,medium,course,https://example.com/feature-eng
+c009,Deep Learning Specialization,Deep Learning,hard,course,https://example.com/deep-learning
+c010,PyTorch in Practice,PyTorch,hard,course,https://example.com/pytorch
+c011,NLP with Transformers,NLP,hard,course,https://example.com/nlp-transformers
+c012,LLM Application Development,LLM,hard,course,https://example.com/llm-apps
+c013,Retrieval Augmented Generation,RAG,hard,course,https://example.com/rag
+c014,Docker for Developers,Docker,easy,course,https://example.com/docker
+c015,MLOps Essentials,MLOps,medium,course,https://example.com/mlops
+c016,Cloud Deployment Basics,Cloud,medium,course,https://example.com/cloud
+c017,HTML & CSS Crash Course,HTML,easy,course,https://example.com/html-css
+c018,Modern CSS Layouts,CSS,easy,course,https://example.com/css-layouts
+c019,JavaScript Essentials,JavaScript,medium,course,https://example.com/javascript
+c020,React from Scratch,React,medium,course,https://example.com/react
+c021,Node.js Backend Development,Node.js,medium,course,https://example.com/nodejs
+c022,Designing REST APIs,REST APIs,medium,course,https://example.com/rest-apis
+c023,Relational Databases,Databases,medium,course,https://example.com/databases
+c024,ML Capstone Project,Machine Learning,hard,project,https://example.com/ml-capstone
+c025,Build a RAG App,RAG,hard,project,https://example.com/rag-project
