@@ -89,25 +89,130 @@ That's the pitch in one line: **it doesn't just recommend — it measures, doubt
 ## Architecture
 
 ```
-┌─────────────────────┐        ┌──────────────────────────────┐
-│  React 18 + Vite     │  HTTP  │  FastAPI (api.py)             │
-│  Tailwind · Recharts │◄──────►│  Bearer-token auth             │
-│  localStorage fallback│        └───────────────┬────────────────┘
-└─────────────────────┘                          │
-                                                  ▼
-                         ┌────────────────────────────────────────┐
-                         │              Engine Layer                │
-                         │  goal_analyzer → graph → skill_gap        │
-                         │  → recommender → adaptive (BKT)           │
-                         │  → calibration → whatif → spaced_repetition│
-                         └───────────────────┬────────────────────┘
-                                             ▼
-                              ┌───────────────────────────┐
-                              │  SQLite (learning.db)       │
-                              │  users · skills · quizzes    │
-                              │  review_schedule · roadmap    │
-                              └───────────────────────────┘
+                           ┌──────────────────────────────┐
+                           │          LEARNER             │
+                           │                              │
+                           │ Career Goal + Profile        │
+                           │ Experience + Confidence      │
+                           └──────────────┬───────────────┘
+                                          │
+                                          ▼
+                    ┌─────────────────────────────────────────┐
+                    │          AI GOAL ANALYZER               │
+                    │                                         │
+                    │  Natural Language Career Goal           │
+                    │            ↓                            │
+                    │  Required Skills + Target Levels        │
+                    └──────────────────┬──────────────────────┘
+                                       │
+                                       ▼
+              ┌────────────────────────────────────────────────────┐
+              │                CAREER SKILL GRAPH                  │
+              │                                                    │
+              │  Skills + Prerequisites + Career Dependencies     │
+              │                                                    │
+              │       Python → ML → Deep Learning → PyTorch       │
+              │          ↓       ↓            ↓          ↓         │
+              │        SQL   Statistics      LLM        RAG        │
+              └────────────────────────┬───────────────────────────┘
+                                       │
+                                       ▼
+                  ┌──────────────────────────────────────────┐
+                  │       LEARNER DIGITAL TWIN               │
+                  │                                          │
+                  │  ┌────────────┐   ┌──────────────────┐  │
+                  │  │ Quiz       │   │ Course / Project │  │
+                  │  │ Evidence   │   │ Evidence         │  │
+                  │  └─────┬──────┘   └────────┬─────────┘  │
+                  │        └──────────┬─────────┘            │
+                  │                   ▼                      │
+                  │          Bayesian Knowledge              │
+                  │             Tracing (BKT)                 │
+                  │                   │                      │
+                  │                   ▼                      │
+                  │       Estimated Skill Mastery            │
+                  └────────────────────┬─────────────────────┘
+                                       │
+                    ┌──────────────────┼───────────────────┐
+                    │                  │                   │
+                    ▼                  ▼                   ▼
+          ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+          │   SKILL GAP     │ │   CALIBRATION   │ │ KNOWLEDGE DECAY │
+          │    ENGINE       │ │     ENGINE      │ │     ENGINE      │
+          │                 │ │                 │ │                 │
+          │ What is missing?│ │ Confidence vs   │ │ What will the  │
+          │ How much?       │ │ Correctness     │ │ learner forget? │
+          └────────┬────────┘ └────────┬────────┘ └────────┬────────┘
+                   │                   │                   │
+                   └───────────────────┼───────────────────┘
+                                       │
+                                       ▼
+                         ┌──────────────────────────┐
+                         │   PATH OPTIMIZATION      │
+                         │                          │
+                         │  Single Goal → DAG       │
+                         │  Multi Goal → Steiner    │
+                         │                Tree       │
+                         │                          │
+                         │  Find shortest useful    │
+                         │  skill-learning path     │
+                         └─────────────┬────────────┘
+                                       │
+                                       ▼
+                    ┌────────────────────────────────────┐
+                    │       ADAPTIVE ROADMAP             │
+                    │                                    │
+                    │ Phase 1 → Phase 2 → Phase 3       │
+                    │    ✓          ✓          🔒         │
+                    │                                    │
+                    │ Roadmap changes when mastery       │
+                    │ evidence changes                    │
+                    └────────────────┬───────────────────┘
+                                     │
+                    ┌────────────────┼────────────────┐
+                    │                │                │
+                    ▼                ▼                ▼
+             ┌────────────┐   ┌────────────┐   ┌──────────────┐
+             │ COURSE /   │   │  PROJECT   │   │   REVIEW     │
+             │ RESOURCE   │   │   LAB      │   │   QUEUE      │
+             │ RECOMMENDER│   │            │   │   (SM-2)     │
+             └─────┬──────┘   └─────┬──────┘   └──────┬───────┘
+                   │                │                 │
+                   └────────────────┼─────────────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────────┐
+                         │    WHAT-IF SIMULATOR    │
+                         │                         │
+                         │ "What if I learn X?"   │
+                         │          ↓              │
+                         │ Projected readiness     │
+                         │ + unlocked skills       │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │      AI COPILOT         │
+                         │                         │
+                         │ Understands learner's   │
+                         │ current skill state     │
+                         │                         │
+                         │ Explains WHY, WHAT &    │
+                         │ WHAT NEXT               │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │     LEARN → ASSESS      │
+                         │          ↓              │
+                         │     UPDATE BKT          │
+                         │          ↓              │
+                         │   RECALCULATE PATH      │
+                         │          ↓              │
+                         │      REPEAT 🔄          │
+                         └─────────────────────────┘
 ```
+
 
 Groq LLM sits alongside `goal_analyzer.py` and the AI Copilot endpoint; both fall back to deterministic rule-based logic if `GROQ_API_KEY` isn't set, so the app never breaks mid-demo for lack of a key.
 
