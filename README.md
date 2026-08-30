@@ -352,4 +352,4 @@ SkillPilot_Report_<name>_<date>.pdf
 
 ---
 
-*Built with ❤️ for HCL — SkillPilot AI, 2026*
+
