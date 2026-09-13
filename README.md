@@ -169,7 +169,7 @@ flowchart TB
 ```
 
 **Goal → Skill Graph → Learner Modeling → Gap Analysis → Path Optimization → Adaptive Roadmap → Learning → Assessment → Recalculation**
-
+```
 
 
 Groq LLM sits alongside `goal_analyzer.py` and the AI Copilot endpoint; both fall back to deterministic rule-based logic if `GROQ_API_KEY` isn't set, so the app never breaks mid-demo for lack of a key.
