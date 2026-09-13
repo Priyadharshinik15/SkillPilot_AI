@@ -88,86 +88,62 @@ That's the pitch in one line: **it doesn't just recommend — it measures, doubt
 
 ## 🏗️ Architecture
 
-SkillPilot models each learner as a dynamic **Digital Twin** and continuously optimizes their learning path using skill dependencies, mastery evidence, confidence calibration, knowledge decay, and career objectives.
+SkillPilot models each learner as a dynamic **Digital Twin** and continuously optimizes their learning journey using skill dependencies, mastery evidence, confidence calibration, knowledge decay, and career objectives.
 
 ```mermaid
-flowchart TB
+flowchart LR
 
     A["👤 LEARNER<br/><b>Career Goal + Profile</b><br/>Experience • Confidence • Target Role"]
 
-    subgraph INTEL["🎯 CAREER INTELLIGENCE"]
-        B["AI Goal Analyzer<br/><br/>Natural Language Goal<br/>↓<br/>Required Skills + Target Levels"]
-        C["Career Skill Graph<br/><br/>Skills • Prerequisites<br/>Career Dependencies"]
-        B --> C
-    end
+    B["🎯 AI GOAL ANALYZER<br/><br/>Natural Language Goal<br/>↓<br/>Required Skills + Target Levels"]
 
-    subgraph TWIN["🧠 LEARNER DIGITAL TWIN"]
-        D["Evidence Collection<br/><br/>Quizzes • Courses • Projects • Assessments"]
-        E["Bayesian Knowledge Tracing<br/>(BKT)"]
-        F["Skill Mastery State<br/><br/>Knowledge • Confidence • Proficiency"]
-        D --> E --> F
-    end
+    C["🕸️ CAREER SKILL GRAPH<br/><br/>Skills • Prerequisites<br/>Career Dependencies"]
 
-    subgraph ANALYTICS["📊 ADAPTIVE ANALYTICS"]
-        G["Skill Gap Engine<br/><br/>Missing Skills • Gap Severity"]
-        H["Calibration Engine<br/><br/>Confidence ↔ Correctness"]
-        I["Knowledge Decay Engine<br/><br/>Forgetting Risk • Retention"]
-    end
+    D["🧠 LEARNER DIGITAL TWIN<br/><br/>Quizzes • Courses • Projects<br/>↓<br/>Bayesian Knowledge Tracing"]
 
-    subgraph OPT["🧭 PATH OPTIMIZATION"]
-        J["Single Goal<br/>DAG Optimization"]
-        K["Multi-Goal<br/>Steiner Tree"]
-        L["Optimal Learning Path<br/><br/>Shortest Useful Skill Path"]
-        J --> L
-        K --> L
-    end
+    E["📊 SKILL MASTERY STATE<br/><br/>Knowledge • Confidence<br/>Proficiency • Readiness"]
 
-    M["🗺️ ADAPTIVE ROADMAP<br/><br/>Phase 1 → Phase 2 → Phase 3<br/><br/>Continuously Updated from Mastery Evidence"]
+    F["🔍 SKILL GAP ENGINE<br/><br/>Missing Skills<br/>Gap Severity"]
 
-    subgraph ACTIONS["🚀 LEARNING ACTIONS"]
-        N["📚 Course / Resource<br/>Recommender"]
-        O["🧪 Project / Lab<br/>Generator"]
-        P["🔁 Review Queue<br/>SM-2 Spaced Repetition"]
-    end
+    G["📈 ADAPTIVE ANALYTICS<br/><br/>Confidence Calibration<br/>Knowledge Decay"]
 
-    Q["🔮 WHAT-IF SIMULATOR<br/><br/>What if I learn X?<br/>↓<br/>Projected Readiness + Unlocked Skills"]
+    H["🧭 PATH OPTIMIZATION<br/><br/>DAG Optimization<br/>Multi-Goal Steiner Tree"]
 
-    R["🤖 AI CAREER COPILOT<br/><br/>WHY this skill?<br/>WHAT should I learn?<br/>WHAT should I do NEXT?"]
+    I["🗺️ ADAPTIVE ROADMAP<br/><br/>Optimal Learning Sequence<br/>Phase 1 → Phase 2 → Phase 3"]
 
-    S["🔄 CLOSED-LOOP ADAPTATION<br/><br/>LEARN → ASSESS → UPDATE<br/>Recalculate Mastery → Recompute Gaps → Optimize Path"]
+    J["🚀 LEARNING ACTIONS<br/><br/>📚 Courses<br/>🧪 Projects<br/>🔁 SM-2 Reviews"]
+
+    K["🔮 WHAT-IF SIMULATOR<br/><br/>What if I learn X?<br/>↓<br/>Projected Readiness"]
+
+    L["🤖 AI CAREER COPILOT<br/><br/>WHY this skill?<br/>WHAT should I learn?<br/>WHAT NEXT?"]
+
+    M["🔄 CLOSED-LOOP ADAPTATION<br/><br/>LEARN → ASSESS → UPDATE<br/>Recalculate → Re-optimize"]
 
     A --> B
+    B --> C
     C --> D
-
-    F --> G
+    D --> E
+    E --> F
+    E --> G
     F --> H
-    F --> I
-
-    G --> J
-    G --> K
-    H --> J
-    I --> K
-
+    G --> H
+    H --> I
+    I --> J
+    J --> K
+    K --> L
     L --> M
 
-    M --> N
-    M --> O
-    M --> P
-
-    N --> Q
-    O --> Q
-    P --> Q
-
-    Q --> R
-    R --> S
-
-    S -. "New Learning Evidence" .-> D
+    M -. "New Learning Evidence" .-> D
 ```
 
-**Core loop:**
-**Goal → Skill Graph → Digital Twin → Gap Analysis → Path Optimization → Adaptive Roadmap → Learning → Assessment → Recalculation 🔄**
+### 🔄 Core Intelligence Loop
 
+**Goal → Skill Graph → Digital Twin → Gap Analysis → Path Optimization → Adaptive Roadmap → Learning → Assessment → Recalculation**
 
+```
+
+This **left-to-right architecture** will look much cleaner in GitHub and is more suitable for showing to HR/judges because the entire system flow is immediately visible.
+```
 
 Groq LLM sits alongside `goal_analyzer.py` and the AI Copilot endpoint; both fall back to deterministic rule-based logic if `GROQ_API_KEY` isn't set, so the app never breaks mid-demo for lack of a key.
 
