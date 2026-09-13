@@ -85,71 +85,73 @@ That's the pitch in one line: **it doesn't just recommend — it measures, doubt
 | Icons | Lucide React |
 
 ---
+## 🏗️ System Architecture
 
-## Architecture
-
-
-                          ```mermaid
+```mermaid
 flowchart TD
 
-    A["LEARNER<br/><br/>Career Goal + Profile<br/>Experience + Confidence"]
-    
-    B["AI GOAL ANALYZER<br/><br/>Natural Language Career Goal<br/>↓<br/>Required Skills + Target Levels"]
-    
-    C["CAREER SKILL GRAPH<br/><br/>Skills + Prerequisites + Career Dependencies<br/><br/>Python → ML → Deep Learning → PyTorch<br/>↓ &nbsp;&nbsp;&nbsp;&nbsp;↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ &nbsp;&nbsp;&nbsp;&nbsp;↓<br/>SQL &nbsp;&nbsp; Statistics &nbsp;&nbsp; LLM &nbsp;&nbsp; RAG"]
-    
-    D["LEARNER DIGITAL TWIN<br/><br/>Quiz Evidence + Course / Project Evidence<br/>↓<br/>Bayesian Knowledge Tracing (BKT)<br/>↓<br/>Estimated Skill Mastery"]
-    
-    E["SKILL GAP ENGINE<br/><br/>What is missing?<br/>How much?"]
-    
-    F["CALIBRATION ENGINE<br/><br/>Confidence vs Correctness"]
-    
-    G["KNOWLEDGE DECAY ENGINE<br/><br/>What will the learner forget?"]
-    
-    H["PATH OPTIMIZATION<br/><br/>Single Goal → DAG<br/>Multi Goal → Steiner Tree<br/><br/>Find shortest useful skill-learning path"]
-    
-    I["ADAPTIVE ROADMAP<br/><br/>Phase 1 → Phase 2 → Phase 3<br/>✓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔒<br/><br/>Roadmap changes when mastery evidence changes"]
-    
-    J["COURSE / RESOURCE<br/>RECOMMENDER"]
-    
-    K["PROJECT LAB"]
-    
-    L["REVIEW QUEUE<br/>(SM-2)"]
-    
-    M["WHAT-IF SIMULATOR<br/><br/>What if I learn X?<br/>↓<br/>Projected readiness + unlocked skills"]
-    
-    N["AI COPILOT<br/><br/>Understands learner's current skill state<br/><br/>Explains WHY, WHAT & WHAT NEXT"]
-    
-    O["LEARN → ASSESS<br/>↓<br/>UPDATE BKT<br/>↓<br/>RECALCULATE PATH<br/>↓<br/>REPEAT 🔄"]
+    A["👤 LEARNER<br/>Career Goal + Profile<br/>Experience + Confidence"]
 
+    subgraph INTELLIGENCE["🎯 GOAL & SKILL INTELLIGENCE"]
+        B["AI Goal Analyzer"]
+        C["Career Skill Graph"]
+    end
+
+    subgraph TWIN["🧠 LEARNER DIGITAL TWIN"]
+        D["Quiz + Course + Project Evidence"]
+        E["Bayesian Knowledge Tracing (BKT)"]
+        F["Estimated Skill Mastery"]
+        D --> E --> F
+    end
+
+    subgraph ANALYTICS["📊 ADAPTIVE ANALYTICS"]
+        G["Skill Gap Engine"]
+        H["Calibration Engine"]
+        I["Knowledge Decay Engine"]
+    end
+
+    J["🧭 Path Optimization<br/>DAG / Steiner Tree"]
+
+    K["🗺️ Adaptive Roadmap"]
+
+    subgraph ACTIONS["🚀 LEARNING ACTIONS"]
+        L["Course / Resource Recommender"]
+        M["Project Lab"]
+        N["Review Queue (SM-2)"]
+    end
+
+    O["🔮 What-If Simulator"]
+
+    P["🤖 AI Copilot"]
+
+    Q["🔄 Learn → Assess → Update BKT → Recalculate Path"]
 
     A --> B
     B --> C
     C --> D
 
-    D --> E
-    D --> F
-    D --> G
-
-    E --> H
+    F --> G
     F --> H
-    G --> H
+    F --> I
 
-    H --> I
-
+    G --> J
+    H --> J
     I --> J
-    I --> K
-    I --> L
 
-    J --> M
+    J --> K
+
+    K --> L
     K --> M
-    L --> M
+    K --> N
 
-    M --> N
+    L --> O
+    M --> O
     N --> O
 
-    O -. "New evidence" .-> D
+    O --> P
+    P --> Q
 
+    Q -. "New evidence" .-> D
 ```
 
 
