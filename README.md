@@ -88,7 +88,7 @@ That's the pitch in one line: **it doesn't just recommend — it measures, doubt
 
 ## Architecture
 
-```
+
                           ```mermaid
 flowchart TD
 
@@ -149,7 +149,6 @@ flowchart TD
     N --> O
 
     O -. "New evidence" .-> D
-```
 
 ```
 
