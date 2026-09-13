@@ -89,128 +89,68 @@ That's the pitch in one line: **it doesn't just recommend — it measures, doubt
 ## Architecture
 
 ```
-                           ┌──────────────────────────────┐
-                           │          LEARNER             │
-                           │                              │
-                           │ Career Goal + Profile        │
-                           │ Experience + Confidence      │
-                           └──────────────┬───────────────┘
-                                          │
-                                          ▼
-                    ┌─────────────────────────────────────────┐
-                    │          AI GOAL ANALYZER               │
-                    │                                         │
-                    │  Natural Language Career Goal           │
-                    │            ↓                            │
-                    │  Required Skills + Target Levels        │
-                    └──────────────────┬──────────────────────┘
-                                       │
-                                       ▼
-              ┌────────────────────────────────────────────────────┐
-              │                CAREER SKILL GRAPH                  │
-              │                                                    │
-              │  Skills + Prerequisites + Career Dependencies     │
-              │                                                    │
-              │       Python → ML → Deep Learning → PyTorch       │
-              │          ↓       ↓            ↓          ↓         │
-              │        SQL   Statistics      LLM        RAG        │
-              └────────────────────────┬───────────────────────────┘
-                                       │
-                                       ▼
-                  ┌──────────────────────────────────────────┐
-                  │       LEARNER DIGITAL TWIN               │
-                  │                                          │
-                  │  ┌────────────┐   ┌──────────────────┐  │
-                  │  │ Quiz       │   │ Course / Project │  │
-                  │  │ Evidence   │   │ Evidence         │  │
-                  │  └─────┬──────┘   └────────┬─────────┘  │
-                  │        └──────────┬─────────┘            │
-                  │                   ▼                      │
-                  │          Bayesian Knowledge              │
-                  │             Tracing (BKT)                 │
-                  │                   │                      │
-                  │                   ▼                      │
-                  │       Estimated Skill Mastery            │
-                  └────────────────────┬─────────────────────┘
-                                       │
-                    ┌──────────────────┼───────────────────┐
-                    │                  │                   │
-                    ▼                  ▼                   ▼
-          ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
-          │   SKILL GAP     │ │   CALIBRATION   │ │ KNOWLEDGE DECAY │
-          │    ENGINE       │ │     ENGINE      │ │     ENGINE      │
-          │                 │ │                 │ │                 │
-          │ What is missing?│ │ Confidence vs   │ │ What will the  │
-          │ How much?       │ │ Correctness     │ │ learner forget? │
-          └────────┬────────┘ └────────┬────────┘ └────────┬────────┘
-                   │                   │                   │
-                   └───────────────────┼───────────────────┘
-                                       │
-                                       ▼
-                         ┌──────────────────────────┐
-                         │   PATH OPTIMIZATION      │
-                         │                          │
-                         │  Single Goal → DAG       │
-                         │  Multi Goal → Steiner    │
-                         │                Tree       │
-                         │                          │
-                         │  Find shortest useful    │
-                         │  skill-learning path     │
-                         └─────────────┬────────────┘
-                                       │
-                                       ▼
-                    ┌────────────────────────────────────┐
-                    │       ADAPTIVE ROADMAP             │
-                    │                                    │
-                    │ Phase 1 → Phase 2 → Phase 3       │
-                    │    ✓          ✓          🔒         │
-                    │                                    │
-                    │ Roadmap changes when mastery       │
-                    │ evidence changes                    │
-                    └────────────────┬───────────────────┘
-                                     │
-                    ┌────────────────┼────────────────┐
-                    │                │                │
-                    ▼                ▼                ▼
-             ┌────────────┐   ┌────────────┐   ┌──────────────┐
-             │ COURSE /   │   │  PROJECT   │   │   REVIEW     │
-             │ RESOURCE   │   │   LAB      │   │   QUEUE      │
-             │ RECOMMENDER│   │            │   │   (SM-2)     │
-             └─────┬──────┘   └─────┬──────┘   └──────┬───────┘
-                   │                │                 │
-                   └────────────────┼─────────────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────────┐
-                         │    WHAT-IF SIMULATOR    │
-                         │                         │
-                         │ "What if I learn X?"   │
-                         │          ↓              │
-                         │ Projected readiness     │
-                         │ + unlocked skills       │
-                         └────────────┬────────────┘
-                                      │
-                                      ▼
-                         ┌─────────────────────────┐
-                         │      AI COPILOT         │
-                         │                         │
-                         │ Understands learner's   │
-                         │ current skill state     │
-                         │                         │
-                         │ Explains WHY, WHAT &    │
-                         │ WHAT NEXT               │
-                         └────────────┬────────────┘
-                                      │
-                                      ▼
-                         ┌─────────────────────────┐
-                         │     LEARN → ASSESS      │
-                         │          ↓              │
-                         │     UPDATE BKT          │
-                         │          ↓              │
-                         │   RECALCULATE PATH      │
-                         │          ↓              │
-                         │      REPEAT 🔄          │
-                         └─────────────────────────┘
+                          ```mermaid
+flowchart TD
+
+    A["LEARNER<br/><br/>Career Goal + Profile<br/>Experience + Confidence"]
+    
+    B["AI GOAL ANALYZER<br/><br/>Natural Language Career Goal<br/>↓<br/>Required Skills + Target Levels"]
+    
+    C["CAREER SKILL GRAPH<br/><br/>Skills + Prerequisites + Career Dependencies<br/><br/>Python → ML → Deep Learning → PyTorch<br/>↓ &nbsp;&nbsp;&nbsp;&nbsp;↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ &nbsp;&nbsp;&nbsp;&nbsp;↓<br/>SQL &nbsp;&nbsp; Statistics &nbsp;&nbsp; LLM &nbsp;&nbsp; RAG"]
+    
+    D["LEARNER DIGITAL TWIN<br/><br/>Quiz Evidence + Course / Project Evidence<br/>↓<br/>Bayesian Knowledge Tracing (BKT)<br/>↓<br/>Estimated Skill Mastery"]
+    
+    E["SKILL GAP ENGINE<br/><br/>What is missing?<br/>How much?"]
+    
+    F["CALIBRATION ENGINE<br/><br/>Confidence vs Correctness"]
+    
+    G["KNOWLEDGE DECAY ENGINE<br/><br/>What will the learner forget?"]
+    
+    H["PATH OPTIMIZATION<br/><br/>Single Goal → DAG<br/>Multi Goal → Steiner Tree<br/><br/>Find shortest useful skill-learning path"]
+    
+    I["ADAPTIVE ROADMAP<br/><br/>Phase 1 → Phase 2 → Phase 3<br/>✓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ✓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔒<br/><br/>Roadmap changes when mastery evidence changes"]
+    
+    J["COURSE / RESOURCE<br/>RECOMMENDER"]
+    
+    K["PROJECT LAB"]
+    
+    L["REVIEW QUEUE<br/>(SM-2)"]
+    
+    M["WHAT-IF SIMULATOR<br/><br/>What if I learn X?<br/>↓<br/>Projected readiness + unlocked skills"]
+    
+    N["AI COPILOT<br/><br/>Understands learner's current skill state<br/><br/>Explains WHY, WHAT & WHAT NEXT"]
+    
+    O["LEARN → ASSESS<br/>↓<br/>UPDATE BKT<br/>↓<br/>RECALCULATE PATH<br/>↓<br/>REPEAT 🔄"]
+
+
+    A --> B
+    B --> C
+    C --> D
+
+    D --> E
+    D --> F
+    D --> G
+
+    E --> H
+    F --> H
+    G --> H
+
+    H --> I
+
+    I --> J
+    I --> K
+    I --> L
+
+    J --> M
+    K --> M
+    L --> M
+
+    M --> N
+    N --> O
+
+    O -. "New evidence" .-> D
+```
+
 ```
 
 
